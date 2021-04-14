@@ -8,19 +8,20 @@ services:
     volumes:
       - .:/code
     command: >
-      sh -c  "python manage.py wait_for_db  &&
+      sh -c  "python manage.py wait_for_db &&
               python manage.py migrate &&
               python manage.py runserver 0.0.0.0:8000"
+    container_name: photo-album
     depends_on:
       - db
   db:
-    image: mysql
+    image: mysql:5.7
     ports:
       - "3306:3306"
+    volumes:
+      - ./data/mysql/db:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: mypassword
-      MYSQL_USER: root
-      MYSQL_PASSWORD: mypassword
-      MYSQL_DATABASE: photo_album
-volumes:
-  mysql_data:
+      - MYSQL_DATABASE=photo_album
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=mypassword
+      - MYSQL_ROOT_PASSWORD=mypassword
