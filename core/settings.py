@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'db',
         'NAME': 'photo_album',
-        'USER': 'myuser',
+        'USER': 'root',
         'PASSWORD': 'mypassword',
         'PORT': '3306',
     }

@@ -10,6 +10,7 @@ class UserManager(BaseUserManager):
         """creates and saves a new user"""
         if not email:
             raise ValueError("Email is a required field")
+        extra_fields.setdefault('is_active', True)
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
         user.save()
@@ -38,6 +39,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     created = models.DateTimeField(default=now, editable=False)
     updated = models.DateTimeField(auto_now_add=True)
+
     objects = UserManager()
 
     USERNAME_FIELD = 'email'

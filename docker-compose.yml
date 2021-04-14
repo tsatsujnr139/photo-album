@@ -22,6 +22,4 @@ services:
       - ./data/mysql/db:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=photo_album
-      - MYSQL_USER=myuser
-      - MYSQL_PASSWORD=mypassword
       - MYSQL_ROOT_PASSWORD=mypassword
