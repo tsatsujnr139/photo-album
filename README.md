@@ -6,7 +6,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Pre-requisites
 
-1. Docker - (Instructions on how to install can be found [here](https://docs.docker.com/install/) (God bless the creators and maintainers for docker!)
+1. Docker - (Instructions on how to install can be found [here](https://docs.docker.com/install/) 
 2. Docker-Compose (Instructions on how to install can be found [here](https://docs.docker.com/compose/install/)
 
 
