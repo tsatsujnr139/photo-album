@@ -1,6 +1,8 @@
 import os
 import uuid
 
+from django.conf import settings
+
 from django.db import models
 
 
@@ -13,6 +15,10 @@ def photo_file_path(instance, filename):
 
 
 class BaseModel(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
     title = models.CharField(max_length=255)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
